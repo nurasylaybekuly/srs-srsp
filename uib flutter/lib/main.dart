@@ -6,46 +6,61 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'MYAPP',
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
       home: Scaffold(
-        appBar: AppBar(title: Text('MYAPP')),
-        backgroundColor: const Color.fromARGB(
-            255, 0, 140, 255), // Set the background color of the app to blue
-        body: Stack(
-          children: [
-            Positioned.fill(
-              child: Container(
-                color: const Color.fromARGB(255, 0, 140, 255),
+        appBar: AppBar(
+          title: Text('MYAPP'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: 200.0,
+                height: 50.0,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Button'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                  ),
+                ),
               ),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button'),
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors
-                            .red, // Set the background color of the button to red
-                        fixedSize: Size(100, 100),
-                        shape: RoundedRectangleBorder()),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(onPressed: () {}, child: Text('Button')),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(onPressed: () {}, child: Text('Button')),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  IconButton(icon: Icon(Icons.data_usage), onPressed: () {}),
-                ],
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Button'),
               ),
-            ),
-          ],
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.drive_file_move),
+                label: Text('Data'),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Button'),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Button'),
+              ),
+              Text(
+                'Hello World! This is a Text Widget.',
+                style: TextStyle(
+                  color: Colors.purple,
+                  backgroundColor: Colors.yellow,
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.volume_up),
+                onPressed: () {},
+                tooltip: 'Text Speaker',
+              ),
+            ],
+          ),
         ),
       ),
     );
