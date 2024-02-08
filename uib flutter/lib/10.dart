@@ -8,39 +8,40 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter SnackBar Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter SnackBar Demo'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            final snackBar = SnackBar(
-              content: Text('Hey! This is a SnackBar message.'),
-              action: SnackBarAction(
-                label: 'Undo',
-                onPressed: () {
-                  // Add your undo logic here
-                },
-              ),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          },
-          child: Text('Show SnackBar'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Button Types Example'),
+        ),
+        body: Center(
+          child: buildTypesButton(),
         ),
       ),
+    );
+  }
+
+  Widget buildTypesButton() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () {},
+          child: Text('TextButton'),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text('ElevatedButton'),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          child: Text('OutlinedButton'),
+        ),
+      ],
     );
   }
 }

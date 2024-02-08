@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(
+    MaterialApp(
       home: Scaffold(
+        body: Image.asset(
+            "uib flutter/assets/2f90c1e9fc45169c0f2cc0dfe88e73a5.jpg"),
         appBar: AppBar(
-          title: Text('Circular Progress Indicator Example'),
-        ),
-        body: Center(
-          child: CircularProgressIndicator(
-            value: null,
-            strokeWidth: 5.0,
-            backgroundColor: Colors.grey[200],
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-          ),
+          title: const Text("METANIT.COM"),
         ),
       ),
-    );
-  }
+    ),
+  );
 }

@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black, // Черный фон
-        body: Center(
-          child: Container(
-            alignment: Alignment.centerLeft, // Выравнивание по левой стороне
-            padding: EdgeInsets.only(left: 50.0), // Отступ слева
+        body: Align(
+          alignment: Alignment.topCenter, // Выравнивание по центру сверху
+          child: Padding(
+            padding: const EdgeInsets.only(top: 50.0), // Отступ сверху
             child: Text(
-              'Текст слева по центру!',
+              'Hello Flutter from metanit.com',
               style: TextStyle(
                 color: Colors.white, // Белый цвет текста
                 fontSize: 24.0,

@@ -1,84 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Gender Selection',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Select your gender'),
-        ),
-        body: GenderSelectionWidget(),
-      ),
-    );
-  }
-}
-
-class GenderSelectionWidget extends StatefulWidget {
-  @override
-  _GenderSelectionWidgetState createState() => _GenderSelectionWidgetState();
-}
-
-class _GenderSelectionWidgetState extends State<GenderSelectionWidget> {
-  String _gender = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+  runApp(
+    Container(
+      padding: EdgeInsets.all(30),
+      color: Color.fromARGB(255, 255, 255, 255),
+      child: Stack(
+        textDirection: TextDirection.ltr,
         children: <Widget>[
-          Text('Please let us know your gender:'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Radio<String>(
-                value: 'Male',
-                groupValue: _gender,
-                onChanged: (String? value) {
-                  setState(() {
-                    _gender = value!;
-                  });
-                },
-              ),
-              Text('Male'),
-              Radio<String>(
-                value: 'Female',
-                groupValue: _gender,
-                onChanged: (String? value) {
-                  setState(() {
-                    _gender = value!;
-                  });
-                },
-              ),
-              Text('Female'),
-              Radio<String>(
-                value: 'Other',
-                groupValue: _gender,
-                onChanged: (String? value) {
-                  setState(() {
-                    _gender = value!;
-                  });
-                },
-              ),
-              Text('Other'),
-            ],
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blueGrey,
           ),
-          ElevatedButton(
-            onPressed: _gender.isNotEmpty
-                ? () {
-                    print('Hello, $_gender!');
-                  }
-                : null,
-            child: Text('Submit'),
+          Container(
+            width: 160,
+            height: 160,
+            color: Colors.cyan,
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.blue,
           ),
         ],
       ),
-    );
-  }
+    ),
+  );
 }
