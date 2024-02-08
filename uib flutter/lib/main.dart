@@ -1,68 +1,54 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MYAPP',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('MYAPP'),
-          backgroundColor: Colors.blue,
+          title: const Text('Election 2020'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                width: 200.0,
-                height: 50.0,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Button'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Button'),
-              ),
-              ElevatedButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.drive_file_move),
-                label: Text('Data'),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Button'),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Button'),
-              ),
-              Text(
-                'Hello World! This is a Text Widget.',
-                style: TextStyle(
-                  color: Colors.purple,
-                  backgroundColor: Colors.yellow,
-                ),
-              ),
-              IconButton(
-                icon: Icon(Icons.volume_up),
-                onPressed: () {},
-                tooltip: 'Text Speaker',
-              ),
-            ],
+          child: ElevatedButton(
+            onPressed: () {
+              showMyAlertDialog(context);
+            },
+            child: const Text('Open Election Dialog'),
           ),
         ),
       ),
+    );
+  }
+
+  void showMyAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Election 2020"),
+          content: const Text("Will you vote for Trump?"),
+          actions: [
+            ElevatedButton(
+              child: const Text("Yes"),
+              onPressed: () {
+                Navigator.of(context).pop("Yes, Of course!");
+              },
+            ),
+            ElevatedButton(
+              child: const Text("No"),
+              onPressed: () {
+                Navigator.of(context).pop("No, I will vote for Biden");
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
